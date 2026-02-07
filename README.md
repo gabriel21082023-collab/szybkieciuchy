@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Keyu Wear - Sklep z Ubraniami</title>
+<title>szybkieciuszki - Sklep z Ubraniami</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -202,3 +202,28 @@ function clearCart() {
 
 </body>
 </html>
+<div id="koszulki" class="tab">
+  <div class="products">
+<div class="product">
+  <img src="https://twoje-zdjecie.pl/koszulka1.jpg">
+  <h3>Koszulka GRszef Dragon</h3>
+  <p>149 zł</p>
+  <button onclick="addToCart('Koszulka Keyu Dragon',149)">Dodaj</button>
+</div>
+<div id="bluzy" class="tab">
+  <div class="products">
+<div class="product">
+  <img src="https://twoje-zdjecie.pl/bluza1.jpg">
+  <h3>Bluza GRszef Black</h3>
+  <p>249 zł</p>
+  <button onclick="addToCart('Bluza Keyu Black',249)">Dodaj</button>
+</div>
+<div class="product">
+  <img src="https://twoje-zdjecie.pl/czapka1.jpg">
+  <h3>Czapka GRszef Street</h3>
+  <p>79 zł</p>
+  <button onclick="addToCart('Czapka Keyu Street',79)">Dodaj</button>
+</div>
+
+
+
