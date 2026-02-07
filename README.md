@@ -108,7 +108,7 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Keyu Wear</h1>
+  <h1>szybkieciuszki</h1>
   <p>Streetwear • Koszulki • Bluzy • Styl 2026</p>
 </div>
 
@@ -164,7 +164,7 @@ footer {
 </div>
 
 <footer>
-  © 2026 Keyu Wear | Instagram: @keyuwear
+  © 2026 szybkieciuszki | Instagram: #szybkieciuszki
 </footer>
 
 <script>
