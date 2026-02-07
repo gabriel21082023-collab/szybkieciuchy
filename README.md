@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Keyu Wear - Sklep z Ubraniami</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+/* NAVBAR */
+nav {
+  background: black;
+  color: white;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav button {
+  background: none;
+  color: white;
+  border: none;
+  margin: 0 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+  background: black;
+  color: white;
+  padding: 60px;
+  text-align: center;
+}
+
+/* PRODUCTS GRID */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* CART */
+#cart {
+  background: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div>👕 Keyu Wear</div>
+  <div>
+    <button onclick="showTab('koszulki')">Koszulki</button>
+    <button onclick="showTab('bluzy')">Bluzy</button>
+    <button onclick="showTab('czapki')">Czapki</button>
+    <button onclick="showTab('cart')">🛒 Koszyk</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Keyu Wear</h1>
+  <p>Streetwear • Koszulki • Bluzy • Styl 2026</p>
+</div>
+
+<!-- KOSZULKI -->
+<div id="koszulki" class="tab">
+  <div class="products">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1520974735194-3cdd7d4f5a0c">
+      <h3>Koszulka Classic</h3>
+      <p>99 zł</p>
+      <button onclick="addToCart('Koszulka Classic',99)">Dodaj</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1520975922071-7a9a5b85c8b6">
+      <h3>Koszulka Logo</h3>
+      <p>129 zł</p>
+      <button onclick="addToCart('Koszulka Logo',129)">Dodaj</button>
+    </div>
+  </div>
+</div>
+
+<!-- BLUZY -->
+<div id="bluzy" class="tab" style="display:none;">
+  <div class="products">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1618354691409-7e59d1e1f7b7">
+      <h3>Bluza Hoodie</h3>
+      <p>199 zł</p>
+      <button onclick="addToCart('Bluza Hoodie',199)">Dodaj</button>
+    </div>
+  </div>
+</div>
+
+<!-- CZAPKI -->
+<div id="czapki" class="tab" style="display:none;">
+  <div class="products">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1520974735194-3cdd7d4f5a0c">
+      <h3>Czapka Snapback</h3>
+      <p>59 zł</p>
+      <button onclick="addToCart('Czapka Snapback',59)">Dodaj</button>
+    </div>
+  </div>
+</div>
+
+<!-- KOSZYK -->
+<div id="cart" class="tab" style="display:none;">
+  <h2>🛒 Twój koszyk</h2>
+  <ul id="cartItems"></ul>
+  <h3>Razem: <span id="total">0</span> zł</h3>
+  <button onclick="clearCart()">Wyczyść koszyk</button>
+</div>
+
+<footer>
+  © 2026 Keyu Wear | Instagram: @keyuwear
+</footer>
+
+<script>
+let cart = [];
+let total = 0;
+
+function showTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.style.display = "none");
+  document.getElementById(tab).style.display = "block";
+}
+
+function addToCart(name, price) {
+  cart.push({name, price});
+  total += price;
+  updateCart();
+}
+
+function updateCart() {
+  const list = document.getElementById("cartItems");
+  list.innerHTML = "";
+  cart.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item.name + " - " + item.price + " zł";
+    list.appendChild(li);
+  });
+  document.getElementById("total").textContent = total;
+}
+
+function clearCart() {
+  cart = [];
+  total = 0;
+  updateCart();
+}
+</script>
+
+</body>
+</html>
